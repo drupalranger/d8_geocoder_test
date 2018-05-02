@@ -1,0 +1,14 @@
+geocoder_test.form_route:
+  path: '/geocoder-test-form'
+  defaults:
+    _form: '\Drupal\geocoder_test\Form\GeocoderForm'
+    _title: 'Geocoder - DI test'
+  requirements:
+    _permission: 'access content'
+geocoder_test.form_route_2:
+  path: '/geocoder-test-form-two'
+  defaults:
+    _form: '\Drupal\geocoder_test\Form\GeocoderFormTwo'
+    _title: 'Geocoder - non-DI test'
+  requirements:
+    _permission: 'access content'

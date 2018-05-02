@@ -1,0 +1,9 @@
+name: Geocoder test
+type: module
+description: Test of injecting geocoder service.
+core: 8.x
+package: Custom
+dependencies:
+ - dynamic_page_cache
+ - page_cache
+ - geocoder
