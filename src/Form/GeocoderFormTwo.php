@@ -42,10 +42,9 @@ class GeocoderFormTwo extends FormBase {
    *   The form structure.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $geocoder = \Drupal::service('geocoder');
     $form['anything'] = [
       '#type' => 'markup',
-      '#markup' => 'Hello there 222',
+      '#markup' => 'Hello there',
       '#suffix' => '<div id="any-wrapper">-</div>',
     ];
 
@@ -69,7 +68,13 @@ class GeocoderFormTwo extends FormBase {
    * Dummy ajax callback.
    */
   public function doAnything(array &$form, FormStateInterface &$form_state) {
-    return time();
+    $geocoded = \Drupal::service('geocoder')->geocode('Ghent', ['googlemaps']);
+    $lat = $geocoded->first()->getLatitude();
+    $lon = $geocoded->first()->getLongitude();
+    return [
+      '#type' => 'markup',
+      '#markup' => $lat. ' - '.$lon
+    ];
   }
 
   /**
